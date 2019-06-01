@@ -1,5 +1,5 @@
 import Container from './Container.js'
-import { Sprite } from 'pixi.js'
+import { Sprite, Texture } from 'pixi.js'
 
 export default {
   mixins: [Container],
@@ -10,12 +10,12 @@ export default {
     // buttonMode
     // pluginName
     // shader
-    // texture
+    texture: String,
     tint: Number,
     src: String
   },
   computed: {
-    instance () { return this.src ? Sprite.fromImage(this.src) : new Sprite() }
+    instance () { return (this.src && this.src != "") ? Sprite.fromImage(this.src) : (this.texture && this.texture != "") ? new Sprite(Texture.from(this.texture)) : new Sprite() }
   },
   watch: {
     'instance': {

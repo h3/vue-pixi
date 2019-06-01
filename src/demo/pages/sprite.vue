@@ -8,6 +8,7 @@
         :width="640"
       >
         <pixi-sprite :src="image"
+          :texture="texture"
           :x="position.x" :y="position.y"
           :anchorX="anchor.x" :anchorY="anchor.y"
           :skewX="skew.x" :skewY="skew.y"
@@ -30,9 +31,25 @@
           <div class="field">
             <p class="control is-expanded">
               <select class="input is-small" v-model="image">
+                <option value="">Use Texture</option>
                 <option value="/img/001.png">Bulbizarre</option>
                 <option value="/img/004.png">Salamèche</option>
                 <option value="/img/007.png">Carapuce</option>
+              </select>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-small">
+          <label class="label">Texture</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded">
+              <select class="input is-small" v-model="texture">
+                <option value="/img/bee.svg">Bee</option>
               </select>
             </p>
           </div>
@@ -112,6 +129,7 @@ export default {
   data () {
     return {
       t: 0,
+      texture: '/img/bee.svg',
       image: '/img/001.png',
       position: { x: 320, y: 240 },
       anchor: { x: 0.5, y: 0.5 },

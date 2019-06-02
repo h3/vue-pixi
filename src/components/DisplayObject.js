@@ -1,7 +1,7 @@
 import { DisplayObject } from "pixi.js";
 
 /* TODO move events from sprite to here 
-https://pixijs.download/v4.5.6/docs/PIXI.DisplayObject.html#interactive
+git https://pixijs.download/v4.5.6/docs/PIXI.DisplayObject.html#interactive
 
 Look at events
 

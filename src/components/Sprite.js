@@ -7,7 +7,8 @@ export default {
     anchorX: Number,
     anchorY: Number,
     blendMode: Number,
-    // buttonMode
+    buttonMode: Boolean,
+    interactive: Boolean,
     // pluginName
     // shader
     texture: String,
@@ -15,7 +16,7 @@ export default {
     src: String
   },
   computed: {
-    instance () { return (this.src && this.src != "") ? Sprite.fromImage(this.src) : (this.texture && this.texture != "") ? new Sprite(Texture.from(this.texture)) : new Sprite() }
+    instance () { return (this.src && this.src !== '') ? Sprite.fromImage(this.src) : (this.texture && this.texture !== '') ? new Sprite(Texture.from(this.texture)) : new Sprite() }
   },
   watch: {
     'instance': {
@@ -28,7 +29,45 @@ export default {
     },
     'tint': function (tint) { this.instance.tint = tint },
     'blendMode': function (blendMode) { this.instance.blendMode = blendMode },
+    'buttonMode': function (buttonMode) { this.instance.buttonMode = buttonMode },
     'anchorX': function (anchorX) { this.instance.anchor.x = anchorX },
-    'anchorY': function (anchorY) { this.instance.anchor.y = anchorY }
+    'anchorY': function (anchorY) { this.instance.anchor.y = anchorY },
+    'interactive': function (interactive) {
+      this.instance.interactive = interactive;
+      [ 'click',
+        'mousedown',
+        'mousemove',
+        'mouseout',
+        'mouseover',
+        'mouseup',
+        'mouseupoutside',
+        'pointercancel',
+        'pointerdown',
+        'pointermove',
+        'pointerout',
+        'pointerover',
+        'pointertap',
+        'pointerup',
+        'pointerupoutside',
+        'rightclick',
+        'rightdown',
+        'rightup',
+        'rightupoutside',
+        'tap',
+        'touchcancel',
+        'touchend',
+        'touchendoutside',
+        'touchmove',
+        'touchstart'].forEach(eventName => {
+        if (interactive) {
+          this.instance.on(eventName, () => this.$emit(eventName, this.instance))
+        } else {
+          this.instance.off(eventName, () => this.$emit(eventName, this.instance))
+        }
+      })
+    }
+  },
+  mounted () {
+
   }
 }

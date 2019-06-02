@@ -14,6 +14,7 @@
           :pivotX="pivot.x" :pivotY="pivot.y"
           :rotation="Math.PI / 180 * rotation"
           :alpha="alpha"
+          :interactive="true"
         >
           <pixi-sprite v-for="(sprite, key) in sprites" :key="key"
             src="/img/logo.png"

@@ -1,15 +1,6 @@
 
 import { DisplayObject } from 'pixi.js'
 
-/**
- * This is the base mixin component for most object components in VueGL,
- * corresponding [THREE.Object3D](https://threejs.org/docs/index.html#api/core/Object3D).
- * Object3d components inside a object3d component are added
- * as children via THREE.Object3D.prototype.add() method.
- *
- * VglObject3d components inside default slots are added as children.
- */
-
 export default {
   props: {
     alpha: Number,

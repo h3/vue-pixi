@@ -21,7 +21,13 @@
             :x="sprite.x" :y="sprite.y"
             :scaleX="sprite.scale" :scaleY="sprite.scale"
             :anchorX="0.5" :anchorY="0.5"
-            :rotation="sprite.angle + t / 60" />
+            :rotation="sprite.angle + t / 60"
+            :interactive="true"
+            :buttonMode="true"
+            @pointerdown="onDragStart"
+            @pointerUp="onDragEnd"
+            @pointerupoutside="onDragEnd"
+            @pointermove="onDragMove"/>
         </pixi-container>
       </pixi-renderer>
     </section>
@@ -104,12 +110,12 @@
 </template>
 
 <script>
-import CoordinateField from '../components/CoordinateField.vue'
-import ColorField from '../components/ColorField.vue'
+import CoordinateField from "../components/CoordinateField.vue";
+import ColorField from "../components/ColorField.vue";
 
 export default {
   components: { CoordinateField, ColorField },
-  data () {
+  data() {
     return {
       t: 0,
       sprites: [],
@@ -118,36 +124,62 @@ export default {
       pivot: { x: 0, y: 0 },
       skew: { x: 0, y: 0 },
       rotation: 0,
-      alpha: 1
-    }
+      alpha: 1,
+      dragRef: null,
+      dragging: false
+    };
   },
   methods: {
-    addSprite () {
+    addSprite() {
       this.sprites.push({
         x: 640 * (0.5 - Math.random()),
         y: 480 * (0.5 - Math.random()),
         angle: 2 * Math.PI * Math.random(),
         scale: 0.25 + 0.5 * Math.random()
-      })
-      console.log(this.sprites)
+      });
+      console.log(this.sprites);
     },
-    delSprite () {
-      this.sprites.pop()
-      console.log(this.sprites)
+    delSprite() {
+      this.sprites.pop();
+      console.log(this.sprites);
     },
-    delSprites () {
-      this.sprites = []
+    delSprites() {
+      this.sprites = [];
     },
-    update (dt) {
-      this.t += dt
+    update(dt) {
+      this.t += dt;
+    },
+    test(e) {
+      console.log("clicked", e);
+    },
+    onDragStart(event) {
+      console.log("dragStart", event.data);
+      this.dragRef = event.data;
+      //this.alpha = 0.5;
+      this.dragging = true;
+    },
+    onDragEnd(event) {
+      console.log("dragEnd", event);
+      //this.alpha = 1;
+      this.dragging = false;
+      this.dragRef = null;
+    },
+    onDragMove(event) {
+      console.log("dragging", event);
+      if (this.dragging) {
+        console.log("eventParent", event.parent);
+        //const newPosition = this.dragRef.getLocalPosition(event.parent);
+        //this.dragRef.x = newPosition.x;
+        //this.dragRef.y = newPosition.y;
+      }
     }
   },
-  created () {
-    this.addSprite()
-    this.addSprite()
-    this.addSprite()
+  mounted() {
+    this.addSprite();
+    this.addSprite();
+    this.addSprite();
   }
-}
+};
 </script>
 
 <style lang="css" scoped>

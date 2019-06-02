@@ -13,13 +13,13 @@ import { DisplayObject } from 'pixi.js'
 export default {
   props: {
     alpha: Number,
-    // buttonMode: Number,
+    buttonMode: Boolean,
     // cacheAsBitmap: Number,
     cursor: String,
     // filterArea: Number,
     // filters: Number,
     // hitArea: Number,
-    // interactive: Number,
+    interactive: Boolean,
     // localTransform: Number,
     // mask: Number,
     // name: Number,
@@ -60,7 +60,9 @@ export default {
         if (this.x) newInstance.x = this.x
         if (this.y) newInstance.y = this.y
         if (this.alpha) newInstance.alpha = this.alpha
+        if (this.buttonMode) newInstance.buttonMode = this.buttonMode
         if (this.cursor) newInstance.cursor = this.cursor
+        if (this.interactive) newInstance.interactive = this.interactive
         if (this.rotation) newInstance.rotation = this.rotation
         if (this.visible) newInstance.visible = this.visible
         if (this.skewX || this.skewY) newInstance.skew.set(this.skewX || 1, this.skewY || 1)
@@ -74,7 +76,9 @@ export default {
     'x': function (x) { this.instance.x = x },
     'y': function (y) { this.instance.y = y },
     'alpha': function (alpha) { this.instance.alpha = alpha },
+    'buttonMode': function (buttonMode) { this.instance.buttonMode = buttonMode },
     'cursor': function (cursor) { this.instance.cursor = cursor },
+    'interactive': function (interactive) { this.instance.interactive = interactive },
     'rotation': function (rotation) { this.instance.rotation = rotation },
     'visible': function (visible) { this.instance.visible = visible },
     'skewX': function (skewX) { this.instance.skew.x = skewX },

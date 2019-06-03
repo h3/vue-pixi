@@ -1,12 +1,5 @@
 import { DisplayObject } from "pixi.js";
 
-/* TODO move events from sprite to here 
-git https://pixijs.download/v4.5.6/docs/PIXI.DisplayObject.html#interactive
-
-Look at events
-
-*/
-
 export default {
   props: {
     alpha: Number,
@@ -50,10 +43,73 @@ export default {
   // created () { this.vglNamespace.update() },
   // beforeUpdate () { this.vglNamespace.update() },
   beforeDestroy() {
+    [
+      "added",
+      "click",
+      "mousedown",
+      "mousemove",
+      "mouseout",
+      "mouseover",
+      "mouseup",
+      "mouseupoutside",
+      "pointercancel",
+      "pointerdown",
+      "pointermove",
+      "pointerout",
+      "pointerover",
+      "pointertap",
+      "pointerup",
+      "pointerupoutside",
+      "removed",
+      "rightclick",
+      "rightdown",
+      "rightup",
+      "rightupoutside",
+      "tap",
+      "touchcancel",
+      "touchend",
+      "touchendoutside",
+      "touchmove",
+      "touchstart"
+    ].forEach(eventName => {
+      this.instance.off(eventName, () => this.$emit(eventName, this.instance));
+    });
+
     const { pixiObjects, instance, name } = this;
     if (instance.parent) instance.parent.removeChild(instance);
     if (pixiObjects[name] === instance) delete pixiObjects[name];
     // vglNamespace.update();
+  },
+  mounted() {
+    [
+      "click",
+      "mousedown",
+      "mousemove",
+      "mouseout",
+      "mouseover",
+      "mouseup",
+      "mouseupoutside",
+      "pointercancel",
+      "pointerdown",
+      "pointermove",
+      "pointerout",
+      "pointerover",
+      "pointertap",
+      "pointerup",
+      "pointerupoutside",
+      "rightclick",
+      "rightdown",
+      "rightup",
+      "rightupoutside",
+      "tap",
+      "touchcancel",
+      "touchend",
+      "touchendoutside",
+      "touchmove",
+      "touchstart"
+    ].forEach(eventName => {
+      this.instance.on(eventName, e => this.$emit(eventName, e));
+    });
   },
   watch: {
     instance: {

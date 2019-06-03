@@ -7,8 +7,6 @@ export default {
     anchorX: Number,
     anchorY: Number,
     blendMode: Number,
-    buttonMode: Boolean,
-    interactive: Boolean,
     // pluginName
     // shader
     texture: String,
@@ -40,79 +38,13 @@ export default {
     blendMode: function(blendMode) {
       this.instance.blendMode = blendMode;
     },
-    buttonMode: function(buttonMode) {
-      this.instance.buttonMode = buttonMode;
-    },
     anchorX: function(anchorX) {
       this.instance.anchor.x = anchorX;
     },
     anchorY: function(anchorY) {
       this.instance.anchor.y = anchorY;
-    },
-    interactive: function(interactive) {
-      this.instance.interactive = interactive;
     }
   },
-  mounted() {
-    [
-      "click",
-      "mousedown",
-      "mousemove",
-      "mouseout",
-      "mouseover",
-      "mouseup",
-      "mouseupoutside",
-      "pointercancel",
-      "pointerdown",
-      "pointermove",
-      "pointerout",
-      "pointerover",
-      "pointertap",
-      "pointerup",
-      "pointerupoutside",
-      "rightclick",
-      "rightdown",
-      "rightup",
-      "rightupoutside",
-      "tap",
-      "touchcancel",
-      "touchend",
-      "touchendoutside",
-      "touchmove",
-      "touchstart"
-    ].forEach(eventName => {
-      this.instance.on(eventName, e => this.$emit(eventName, e));
-    });
-  },
-  beforeDestroy() {
-    [
-      "click",
-      "mousedown",
-      "mousemove",
-      "mouseout",
-      "mouseover",
-      "mouseup",
-      "mouseupoutside",
-      "pointercancel",
-      "pointerdown",
-      "pointermove",
-      "pointerout",
-      "pointerover",
-      "pointertap",
-      "pointerup",
-      "pointerupoutside",
-      "rightclick",
-      "rightdown",
-      "rightup",
-      "rightupoutside",
-      "tap",
-      "touchcancel",
-      "touchend",
-      "touchendoutside",
-      "touchmove",
-      "touchstart"
-    ].forEach(eventName => {
-      this.instance.off(eventName, () => this.$emit(eventName, this.instance));
-    });
-  }
+  mounted() {},
+  beforeDestroy() {}
 };

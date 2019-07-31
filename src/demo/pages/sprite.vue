@@ -127,16 +127,16 @@
 </template>
 
 <script>
-import CoordinateField from "../components/CoordinateField.vue";
-import ColorField from "../components/ColorField.vue";
+import CoordinateField from '../components/CoordinateField.vue'
+import ColorField from '../components/ColorField.vue'
 
 export default {
   components: { CoordinateField, ColorField },
-  data() {
+  data () {
     return {
       t: 0,
-      texture: "/img/bee.svg",
-      image: "/img/001.png",
+      texture: '/img/bee.svg',
+      image: '/img/001.png',
       position: { x: 320, y: 240 },
       anchor: { x: 0.5, y: 0.5 },
       scale: { x: 1, y: 1 },
@@ -144,33 +144,33 @@ export default {
       skew: { x: 0, y: 0 },
       rotation: 0,
       alpha: 1
-    };
+    }
   },
   methods: {
-    update(dt) {
-      this.t += dt;
+    update (dt) {
+      this.t += dt
     },
-    onDragStart(event) {
-      console.log("dragStart", event.data);
-      this.dragRef = event.data;
-      //this.alpha = 0.5;
-      this.dragging = true;
+    onDragStart (event) {
+      console.log('dragStart', event.data)
+      this.dragRef = event.data
+      // this.alpha = 0.5;
+      this.dragging = true
     },
-    onDragEnd(event) {
-      console.log("dragEnd", event);
-      //this.alpha = 1;
-      this.dragging = false;
-      this.dragRef = null;
+    onDragEnd (event) {
+      console.log('dragEnd', event)
+      // this.alpha = 1;
+      this.dragging = false
+      this.dragRef = null
     },
-    onDragMove(event) {
-      console.log("dragging", event);
+    onDragMove (event) {
+      console.log('dragging', event)
       if (this.dragging) {
-        console.log("eventParent", this.$parent);
-        //const newPosition = this.dragRef.getLocalPosition(event.parent);
-        //this.dragRef.x = newPosition.x;
-        //this.dragRef.y = newPosition.y;
+        console.log('eventParent', this.$parent)
+        // const newPosition = this.dragRef.getLocalPosition(event.parent);
+        // this.dragRef.x = newPosition.x;
+        // this.dragRef.y = newPosition.y;
       }
     }
   }
-};
+}
 </script>

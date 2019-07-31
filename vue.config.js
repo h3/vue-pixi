@@ -1,5 +1,5 @@
 module.exports = {
-    pages : {
-        index : "src/demo/main.js"
-    }
+  pages: {
+    index: 'src/demo/main.js'
+  }
 }

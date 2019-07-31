@@ -1,4 +1,4 @@
-import { DisplayObject } from 'pixi.js'
+import { DisplayObject } from "pixi.js"
 
 export default {
   props: {
@@ -32,7 +32,7 @@ export default {
   computed: {
     instance: () => new DisplayObject()
   },
-  inject: ['pixiObjects'],
+  inject: ["pixiObjects"],
   provide () {
     const vm = this
     return {
@@ -47,33 +47,33 @@ export default {
   // beforeUpdate () { this.vglNamespace.update() },
   beforeDestroy () {
     [
-      'added',
-      'click',
-      'mousedown',
-      'mousemove',
-      'mouseout',
-      'mouseover',
-      'mouseup',
-      'mouseupoutside',
-      'pointercancel',
-      'pointerdown',
-      'pointermove',
-      'pointerout',
-      'pointerover',
-      'pointertap',
-      'pointerup',
-      'pointerupoutside',
-      'removed',
-      'rightclick',
-      'rightdown',
-      'rightup',
-      'rightupoutside',
-      'tap',
-      'touchcancel',
-      'touchend',
-      'touchendoutside',
-      'touchmove',
-      'touchstart'
+      "added",
+      "click",
+      "mousedown",
+      "mousemove",
+      "mouseout",
+      "mouseover",
+      "mouseup",
+      "mouseupoutside",
+      "pointercancel",
+      "pointerdown",
+      "pointermove",
+      "pointerout",
+      "pointerover",
+      "pointertap",
+      "pointerup",
+      "pointerupoutside",
+      "removed",
+      "rightclick",
+      "rightdown",
+      "rightup",
+      "rightupoutside",
+      "tap",
+      "touchcancel",
+      "touchend",
+      "touchendoutside",
+      "touchmove",
+      "touchstart"
     ].forEach(eventName => {
       this.instance.off(eventName, () => this.$emit(eventName, this.instance))
     })
@@ -85,31 +85,31 @@ export default {
   },
   mounted () {
     [
-      'click',
-      'mousedown',
-      'mousemove',
-      'mouseout',
-      'mouseover',
-      'mouseup',
-      'mouseupoutside',
-      'pointercancel',
-      'pointerdown',
-      'pointermove',
-      'pointerout',
-      'pointerover',
-      'pointertap',
-      'pointerup',
-      'pointerupoutside',
-      'rightclick',
-      'rightdown',
-      'rightup',
-      'rightupoutside',
-      'tap',
-      'touchcancel',
-      'touchend',
-      'touchendoutside',
-      'touchmove',
-      'touchstart'
+      "click",
+      "mousedown",
+      "mousemove",
+      "mouseout",
+      "mouseover",
+      "mouseup",
+      "mouseupoutside",
+      "pointercancel",
+      "pointerdown",
+      "pointermove",
+      "pointerout",
+      "pointerover",
+      "pointertap",
+      "pointerup",
+      "pointerupoutside",
+      "rightclick",
+      "rightdown",
+      "rightup",
+      "rightupoutside",
+      "tap",
+      "touchcancel",
+      "touchend",
+      "touchendoutside",
+      "touchmove",
+      "touchstart"
     ].forEach(eventName => {
       this.instance.on(eventName, e => this.$emit(eventName, e))
     })
@@ -134,7 +134,7 @@ export default {
       },
       immediate: true
     },
-    '$parent.instance': function parentInstance (instance) {
+    "$parent.instance": function parentInstance (instance) {
       this.instance.setParent(instance)
     },
     x: function (x) {

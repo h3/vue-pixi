@@ -1,5 +1,5 @@
-import Sprite from './Sprite.js'
-import { Text } from 'pixi.js'
+import Sprite from "./Sprite.js"
+import { Text } from "pixi.js"
 
 export default {
   mixins: [Sprite],
@@ -10,12 +10,12 @@ export default {
     instance: () => new Text()
   },
   watch: {
-    'instance': {
+    "instance": {
       handler (newInstance, oldInstance) {
         if (this.text) newInstance.text = this.text
       },
       immediate: true
     },
-    'text': function (text) { this.instance.text = text }
+    "text": function (text) { this.instance.text = text }
   }
 }

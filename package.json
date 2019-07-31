@@ -1,6 +1,6 @@
 {
   "name": "vue-pixi-onode",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Vue.js components rendering 2D graphics reactively via pixi.js",
   "keywords": [
     "Vue",

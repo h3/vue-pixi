@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { Application } from 'pixi.js'
+import { Application } from "pixi.js"
 
 export default {
   props: {
@@ -47,18 +47,18 @@ export default {
   },
   mounted () {
     this.$el.appendChild(this.app.view)
-    this.app.ticker.add(delta => this.$emit('tick', delta))
+    this.app.ticker.add(delta => this.$emit("tick", delta))
   },
   watch: {
-    'autoResize': function (autoResize) { this.renderer.autoResize = autoResize },
-    'backgroundColor': function (backgroundColor) { this.renderer.backgroundColor = backgroundColor },
-    'clearBeforeRender': function (clearBeforeRender) { this.renderer.clearBeforeRender = clearBeforeRender },
-    'preserveDrawingBuffer': function (preserveDrawingBuffer) { this.renderer.preserveDrawingBuffer = preserveDrawingBuffer },
-    'resolution': function (resolution) { this.renderer.resolution = resolution },
-    'roundPixels': function (roundPixels) { this.renderer.roundPixels = roundPixels },
-    'transparent': function (transparent) { this.renderer.transparent = transparent },
-    'height': function (height) { this.renderer.resize(this.width, height) },
-    'width': function (width) { this.renderer.resize(width, this.height) }
+    "autoResize": function (autoResize) { this.renderer.autoResize = autoResize },
+    "backgroundColor": function (backgroundColor) { this.renderer.backgroundColor = backgroundColor },
+    "clearBeforeRender": function (clearBeforeRender) { this.renderer.clearBeforeRender = clearBeforeRender },
+    "preserveDrawingBuffer": function (preserveDrawingBuffer) { this.renderer.preserveDrawingBuffer = preserveDrawingBuffer },
+    "resolution": function (resolution) { this.renderer.resolution = resolution },
+    "roundPixels": function (roundPixels) { this.renderer.roundPixels = roundPixels },
+    "transparent": function (transparent) { this.renderer.transparent = transparent },
+    "height": function (height) { this.renderer.resize(this.width, height) },
+    "width": function (width) { this.renderer.resize(width, this.height) }
   }
 }
 </script>

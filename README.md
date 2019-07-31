@@ -1,5 +1,6 @@
 # Vue-PIXI
-
+v0.2.1
+Based on PIXI v5.1.0
 > A [Vue.js](https://vuejs.org) plugin for [PIXI.js](https://pixijs.io). Currently it is more a proof of concept that an actual library but it will get there eventually.
 Greatly inspired by [Vue-gl](https://vue-gl.github.io).
 

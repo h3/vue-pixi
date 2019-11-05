@@ -19,6 +19,6 @@ export default {
       immediate: true
     },
     "text": function (text) { this.instance.text = text },
-    "textStyle": function (style) { this.instance.style = textStyle}
+    "textStyle": function (textStyle) { this.instance.style = textStyle}
   }
 }

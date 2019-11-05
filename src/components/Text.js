@@ -5,7 +5,7 @@ export default {
   mixins: [Sprite],
   props: {
     text: String,
-    style: Object
+    textStyle: Object
   },
   computed: {
     instance: () => new Text()
@@ -14,11 +14,11 @@ export default {
     "instance": {
       handler (newInstance, oldInstance) {
         if (this.text) newInstance.text = this.text
-        if (this.style) newInstance.style = this.style
+        if (this.textStyle) newInstance.style = this.textStyle
       },
       immediate: true
     },
     "text": function (text) { this.instance.text = text },
-    "style": function (style) { this.instance.style = style}
+    "textStyle": function (style) { this.instance.style = textStyle}
   }
 }

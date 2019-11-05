@@ -27,7 +27,8 @@ export default {
       default: () => true
     },
     x: Number,
-    y: Number
+    y: Number,
+    zIndex: Number
   },
   computed: {
     instance: () => new DisplayObject()
@@ -121,6 +122,7 @@ export default {
         if (this.$parent.instance) this.$parent.instance.addChild(newInstance)
         if (this.x) newInstance.x = this.x
         if (this.y) newInstance.y = this.y
+        if (this.zIndex) newInstance.zIndex = this.zIndex
         if (this.alpha) newInstance.alpha = this.alpha
         if (this.buttonMode) newInstance.buttonMode = this.buttonMode
         if (this.cursor) newInstance.cursor = this.cursor
@@ -142,6 +144,9 @@ export default {
     },
     y: function (y) {
       this.instance.y = y
+    },
+    zIndex: function (zIndex) {
+      this.instance.zIndex = zIndex
     },
     alpha: function (alpha) {
       this.instance.alpha = alpha

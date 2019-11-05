@@ -17,7 +17,7 @@ export default {
     instance () {
       const that = this;
       return that.src && that.src !== ""
-        ? new Sprite.fromImage(that.src)
+        ? Sprite.fromImage(that.src)
         : that.texture && that.texture !== ""
           ? new Sprite(Texture.from(that.texture))
           : new Sprite()

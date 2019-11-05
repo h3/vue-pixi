@@ -5,7 +5,7 @@ export default {
   mixins: [Sprite],
   props: {
     text: String,
-    style: object
+    style: Object
   },
   computed: {
     instance: () => new Text()
